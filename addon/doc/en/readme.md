@@ -1,0 +1,63 @@
+#ChatterKiller – by Jason Bratcher
+
+Jason Bratcher, Welcome to your new add-on. Please write instructions on how to use your addon in this file.
+When you compile your addon, users can get help with it by activating addon help from the list item containing your addon in the Addons manager in NVDA.
+Good documentation is both important for your success as an add-on author and also essential for a stable add-on, persuading other potential users to try it out!
+Some helpful notes for me, but first, what does this add-on do?
+Tired of NVDA saying "no previous", "no next", "top", "Bottom," "left", "right" while using the NVDA object navigator?
+How about we change that to tones announcing the happening of reaching edge points instead of speech?
+This oughta be good!
+The only thing worth configuring in the _init.py file is the pitch, length, left and right volume of the tone variables that NVDA will follow hile this add-on is active.
+So whenever you use the commands NVDA+NumPad4/NumPad6/NumPad8/NumPad2, instead of NVDA actually saying the earlier messages, NVDA will instead play preset tones that I've coded.
+Left side alerts will be panned left to indicate you can't go any further.
+The same thing happens with tones panned to the right.
+Octave tones are used to denote the beginning/end of a line.
+Now when the tones are heard, NVDA Will Still Say whatever you're located on.
+So with this add-on installed:
+After restarting NVDA (unless you've turnde off the Focus Moves Navigator Object function, the object navigator is in the exact same place as NVDA's focus.
+If you did turn off Review Follows Focus with NVDA+7 (number row above the letters), your focus then gets put on the Desktop.
+Let's have some fun, shall we?
+You can use NVDA+NumPad5 to find out the exact focus of the object navigator.
+Use the NumPad1 and NumPad3 commands to left or right a single character at a time through the focused text;
+check out what happens when you reach either end of the word/phrase at focus?
+No "left" or "right" message. Just a tone (panned hard left/right) to indicate you CanNot Go AnyFurther than that.
+Go ahead and use NVDA+NumPad4/NVDA+NumPad6 to move left/right through the object sibblings on this row.
+If there are not any others, a tone plays either hard left/right to tell you that.
+Or if there are other objects, you'll be able to navigate through them.
+The tone only plays when you're at the beginning/end of the row of objects.
+How cool is that!
+That's pretty much the jist of this add-on;
+I - might - consider other conditions, like objects being defunct (no longer available) or off-screen (according to NVDA it's not in focus now).
+
+Now for the development notes:
+To build this addon, please visit [building.md]
+I hope you found this add-on creation process easy.
+If you have any feedback, or instructions, please post  to [The add-on development list](http://www.freelists.org/list/nvda-addons).
+Additionally, Please review the [Add-ons development pages](http://addons.nvda-project.org/dev.en.html), and you are strongly encouraged to submit your add-on for review.
+The review process checks for 5 things.
+1. "Legality
+Is your code GPL V.2. (since NVDA is also GPL V.2. and your add-on is a part of NVDA during execution)?
+Also know that pirating speech synthesisers/doing other shady  things won't be approved."
+Yes.
+This software is indeed licensed under GPL V2 from June of 1991.
+2. "Watch Out For Evil
+Does your code do anything dangerous/malicious?"
+No.
+I wouldn't hope to perform any malicious tasks with NVDA.
+After all it's my daily driver and best to put it to good use, not use it in, say, an Indian scam call center.
+Lest I then be featured in one of the ScammerPayBack videos, lol?
+3. "Security Check
+Does your code contain any blatent security voneribilities that effect NVDA?
+If found you must  fix it/them before your next release."
+No.
+None that I know of.
+4. "Simple quality check
+Does the add-on break functionality of NVDA in potentially annoying ways/make NVDA hard to use?"
+No.
+That's why I'm writing this documentation;
+so things actually do make sense out of the box.
+This is a potential quality-of-life improvement add-on for me, but Not Everyone Will find it useful.
+5. "Clarity
+Is the documentation written so that an 'average joe" can figure out how this add-on works - without reading any of its source code?
+Yes.
+I did that earlier.
