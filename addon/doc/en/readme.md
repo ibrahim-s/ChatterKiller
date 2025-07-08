@@ -1,63 +1,50 @@
-#ChatterKiller – by Jason Bratcher
-
-Jason Bratcher, Welcome to your new add-on. Please write instructions on how to use your addon in this file.
-When you compile your addon, users can get help with it by activating addon help from the list item containing your addon in the Addons manager in NVDA.
-Good documentation is both important for your success as an add-on author and also essential for a stable add-on, persuading other potential users to try it out!
-Some helpful notes for me, but first, what does this add-on do?
-Tired of NVDA saying "no previous", "no next", "top", "Bottom," "left", "right" while using the NVDA object navigator?
-How about we change that to tones announcing the happening of reaching edge points instead of speech?
-This oughta be good!
-The only thing worth configuring in the _init.py file is the pitch, length, left and right volume of the tone variables that NVDA will follow hile this add-on is active.
-So whenever you use the commands NVDA+NumPad4/NumPad6/NumPad8/NumPad2, instead of NVDA actually saying the earlier messages, NVDA will instead play preset tones that I've coded.
-Left side alerts will be panned left to indicate you can't go any further.
-The same thing happens with tones panned to the right.
-Octave tones are used to denote the beginning/end of a line.
-Now when the tones are heard, NVDA Will Still Say whatever you're located on.
-So with this add-on installed:
-After restarting NVDA (unless you've turnde off the Focus Moves Navigator Object function, the object navigator is in the exact same place as NVDA's focus.
-If you did turn off Review Follows Focus with NVDA+7 (number row above the letters), your focus then gets put on the Desktop.
-Let's have some fun, shall we?
-You can use NVDA+NumPad5 to find out the exact focus of the object navigator.
-Use the NumPad1 and NumPad3 commands to left or right a single character at a time through the focused text;
-check out what happens when you reach either end of the word/phrase at focus?
-No "left" or "right" message. Just a tone (panned hard left/right) to indicate you CanNot Go AnyFurther than that.
-Go ahead and use NVDA+NumPad4/NVDA+NumPad6 to move left/right through the object sibblings on this row.
-If there are not any others, a tone plays either hard left/right to tell you that.
-Or if there are other objects, you'll be able to navigate through them.
-The tone only plays when you're at the beginning/end of the row of objects.
-How cool is that!
-That's pretty much the jist of this add-on;
-I - might - consider other conditions, like objects being defunct (no longer available) or off-screen (according to NVDA it's not in focus now).
-
-Now for the development notes:
-To build this addon, please visit [building.md]
-I hope you found this add-on creation process easy.
-If you have any feedback, or instructions, please post  to [The add-on development list](http://www.freelists.org/list/nvda-addons).
-Additionally, Please review the [Add-ons development pages](http://addons.nvda-project.org/dev.en.html), and you are strongly encouraged to submit your add-on for review.
-The review process checks for 5 things.
-1. "Legality
-Is your code GPL V.2. (since NVDA is also GPL V.2. and your add-on is a part of NVDA during execution)?
-Also know that pirating speech synthesisers/doing other shady  things won't be approved."
-Yes.
-This software is indeed licensed under GPL V2 from June of 1991.
-2. "Watch Out For Evil
-Does your code do anything dangerous/malicious?"
-No.
-I wouldn't hope to perform any malicious tasks with NVDA.
-After all it's my daily driver and best to put it to good use, not use it in, say, an Indian scam call center.
-Lest I then be featured in one of the ScammerPayBack videos, lol?
-3. "Security Check
-Does your code contain any blatent security voneribilities that effect NVDA?
-If found you must  fix it/them before your next release."
-No.
-None that I know of.
-4. "Simple quality check
-Does the add-on break functionality of NVDA in potentially annoying ways/make NVDA hard to use?"
-No.
-That's why I'm writing this documentation;
-so things actually do make sense out of the box.
-This is a potential quality-of-life improvement add-on for me, but Not Everyone Will find it useful.
-5. "Clarity
-Is the documentation written so that an 'average joe" can figure out how this add-on works - without reading any of its source code?
-Yes.
-I did that earlier.
+# ChatterKiller
+My name's Jason Bratcher from Valrico, Florida, U.S.A.
+(some of you others know me by my Mastodon id @BlindHedgehogStew@DragonsCave.Space -
+that's where I roar with the best of DragonsCave(granted I tend to share more content).
+My job is to quietly keep NVDA from saying phrases like
+'left' 'right',
+'top' 'bottom',
+'no previous' 'no next',
+'no containing object' 'no objects inside'.
+I was put here to replace NVDA's spoken object review boundary messages with tones.
+The tone statements go as follows:
+(For All Statements the '0' indicates a silent channel
+(Meaning you can't go back any further)).
+(First 4 statements still  allow the character/word/line at the boundary point).
+TONE_LEFT = (330, 65, 45, 0)
+TONE_RIGHT = (330, 65, 0, 45)
+TONE_AT_TOP = (880, 65, 45, 45)
+TONE_AT_BOTTOM = (440, 65, 45, 45)
+(Last 4 statements follow NVDA's convention of Not Announcing the item you're on, hence they'll be silent).
+TONE_NO_PREVIOUS = (330, 65, 45, 0)
+TONE_NO_NEXT = (330, 65, 0, 45)
+TONE_NO_PARENT = (262, 60, 45, 45)
+TONE_NO_CHILD = (131, 60, 45, 45)
+With that out of the way let's move on?
+GettingStarted:
+1. Download+install as any other addon (this is an external install Not a Store submission
+hence you'll see 'external' showing as the source).
+2. Go to the NVDA Input gestures and locate the ChatterKiller branch
+(one unassigned keystroke is here - to toggle the addon on or off;
+Assign a keystroke to this.
+3. OK the dialog.
+4. Tap the assigned keystroke so the addon is enabled.
+Now start object navigating/cursor with the extended NumPad (Desktop) or the alternate (laptop) commands.
+If working right, tones play to indicate the boundaries of the dimensions of navigation via object navigation/review cursor.
+My work is done here;
+You can edit the __init__.py file to change the numeric values for the pitch, duration, left channel volume and right channel volumeso you don't have to use hard panning;
+Some people process partial panning possibly better than a true hard pan (which is what I initially planned on for proof of concept.
+TONE_LEFT = (220, 55, 42, 14)
+TONE_RIGHT = (220, 55, 14, 42)
+TONE_NO_PREVIOUS = (220, 75, 42, 14)
+TONE_NO_NEXT = (220, 75, 14, 42)
+These statements enforce partial panning and a slightly longer tone for NVDA+NumPad4/6 (or the Laptop equivalent) indicating no previous/further objects are available.
+This won't stop the 'hanging' issue that happens when NVDA works with some programs where their code hasn't been optimized correctly,
+With those programs you'll try to go to the previous or next object if you're already at the end of the sibblings and NVDA just goes quiet without saying a word.
+Properly optimized programs Won't Do that behavior;
+They will offer speedy object navigation especially on the Ultimate Performance power plan!
+AnyWho I hope youhave a YabbaDabbaDoo time with the addon.
+Best wishes;
+Jason A. BratcherImCoocoo@GMail.Com
+@BlindHedgehogStew@DragonsCave.Space
