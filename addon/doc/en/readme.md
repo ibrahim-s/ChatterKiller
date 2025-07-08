@@ -11,7 +11,7 @@ I was put here to replace NVDA's spoken object review boundary messages with ton
 The tone statements go as follows:
 (For All Statements the '0' indicates a silent channel
 (Meaning you can't go back any further)).
-(First 4 statements still  allow the character/word/line at the boundary point).
+(First 4 statements still  announce the character/word/line at the boundary point).
 TONE_LEFT = (330, 65, 45, 0)
 TONE_RIGHT = (330, 65, 0, 45)
 TONE_AT_TOP = (880, 65, 45, 45)
@@ -27,13 +27,13 @@ GettingStarted:
 hence you'll see 'external' showing as the source).
 2. Go to the NVDA Input gestures and locate the ChatterKiller branch
 (one unassigned keystroke is here - to toggle the addon on or off;
-Assign a keystroke to this.
-3. OK the dialog.
+Assign a keystroke to this (like NVDA+Shift+c).
+3. OKay the dialog.
 4. Tap the assigned keystroke so the addon is enabled.
-Now start object navigating/cursor with the extended NumPad (Desktop) or the alternate (laptop) commands.
+Now start object navigating/review cursor with the extended NumPad (Desktop) or the alternate (laptop) commands.
 If working right, tones play to indicate the boundaries of the dimensions of navigation via object navigation/review cursor.
 My work is done here;
-You can edit the __init__.py file to change the numeric values for the pitch, duration, left channel volume and right channel volumeso you don't have to use hard panning;
+You can edit the __init__.py file to change the numeric values for the pitch, duration, left channel volume and right channel volume so you don't have to use hard panning;
 Some people process partial panning possibly better than a true hard pan (which is what I initially planned on for proof of concept.
 TONE_LEFT = (220, 55, 42, 14)
 TONE_RIGHT = (220, 55, 14, 42)
@@ -44,7 +44,7 @@ This won't stop the 'hanging' issue that happens when NVDA works with some progr
 With those programs you'll try to go to the previous or next object if you're already at the end of the sibblings and NVDA just goes quiet without saying a word.
 Properly optimized programs Won't Do that behavior;
 They will offer speedy object navigation especially on the Ultimate Performance power plan!
-AnyWho I hope youhave a YabbaDabbaDoo time with the addon.
+AnyWho I hope you have a YabbaDabbaDoo time with the addon.
 Best wishes;
 Jason A. BratcherImCoocoo@GMail.Com
 @BlindHedgehogStew@DragonsCave.Space
