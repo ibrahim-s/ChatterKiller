@@ -7,13 +7,13 @@ h1, h2 {text-align: center}
 dt { 
 font-weight : bold; 
 float : left; 
-width: 10%;
+width: 15%;
 clear: left
 } 
 dd { 
 margin : 0 0 0.4em 0; 
 float : left;
-width: 90%;
+width: 95%;
 display: block;
 } 
 p { clear : both; 
