@@ -1,9 +1,10 @@
 name = {addon_name}
-summary = {addon_summary}
-description = {addon_description}
-author = {addon_author}
+summary = "{addon_summary}"
+description = """{addon_description}"""
+author = "{addon_author}"
 url = {addon_url}
 version = {addon_version}
 docFileName = {addon_docFileName}
-minimumNVDAVersion = 2019.3.0
-lastTestedNVDAVersion = 2025.9.9
+minimumNVDAVersion = {addon_minimumNVDAVersion}
+lastTestedNVDAVersion = {addon_lastTestedNVDAVersion}
+updateChannel = {addon_updateChannel}
